@@ -285,3 +285,69 @@ body {
 .about-form-box button:hover {
     background: #2a85c7;
 }
+
+/* Responsive about */
+
+@media (max-width: 900px) {
+    .about-hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-hero-text {
+        order: 1;
+    }
+
+    .about-hero-image {
+        order: 0;
+    }
+
+    .about-hero-image img {
+        max-width: 280px;
+    }
+
+    .about-form {
+        flex-direction: column;
+    }
+}
+/* Login page */
+.login-page {
+    padding: 80px 10%;
+    display: flex;
+    justify-content: center;
+}
+
+.login-wrapper {
+    background: #ffffff;
+    padding: 40px 35px;
+    border-radius: 16px;
+    width: 380px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    animation: fadeIn 0.6s ease;
+}
+
+.login-wrapper h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 6px;
+    color: #0b1a2e;
+}
+
+.login-sub {
+    text-align: center;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.register-text {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 15px;
+    color: #444;
+}
+
+.link-blue {
+    color: #3da9fc;
+    text-decoration: none;
+    font-weight: 500;
+}
