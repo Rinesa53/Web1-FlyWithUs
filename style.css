@@ -434,3 +434,63 @@ body {
     height: 260px;
     border-radius: 12px;
 }
+
+/* Djathtas – forma */
+
+.contact-form-box {
+    margin-top: 40px;
+    background: #ffffff;
+    padding: 20px 22px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-row {
+    display: flex;
+    gap: 10px;
+}
+
+.contact-form-box input,
+.contact-form-box textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.contact-form-box textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.contact-form-box button {
+    margin-top: 5px;
+    padding: 10px 18px;
+    border-radius: 6px;
+    border: none;
+    background: #0b1a2e;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-form-box button:hover {
+    background: #174070;
+}
+
+/* Responsive për contact page */
+
+@media (max-width: 992px) {
+    .contact-layout {
+        flex-direction: column;
+    }
+
+    .contact-row {
+        flex-direction: column;
+    }
+}
