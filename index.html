@@ -12,7 +12,7 @@
 
     <nav class="navbar">
         <div class="logo">
-            <img src="../img/airplane-logo.png" alt="Airplane Logo" class="nav-logo">
+            <img src="/img/airplane-logo.png" alt="Airplane Logo" class="nav-logo">
             <a href="index.html" class="logo-text">Fly With Us</a>
         </div>
 
@@ -31,4 +31,178 @@
             <a href="contact.html">Kontakti</a>
         </div>
     </nav>
-    
+
+    <header class="hero" id="hero">
+        <div class="hero-overlay">
+            <h1 class="hero-title">Fly With Us</h1>
+            <p class="hero-subtitle">
+                Zbuloni qytete të bukura në të gjithë botën me bileta fleksibile dhe çmime të shkëlqyera.
+            </p>
+            <a href="#booking" class="btn-primary">Rezervo Tani</a>
+        </div>
+    </header>
+<main>
+        <section id="booking" class="booking-section">
+            <div class="booking-container">
+                <h2>Rezervo Fluturimin Tuaj</h2>
+                <p class="section-subtitle">
+                    Plotëso detajet më poshtë dhe ne do të përgatisim ofertën më të mirë për ju.
+                </p>
+
+                <form id="bookingForm" class="booking-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Emri Juaj</label>
+                            <input type="text" id="name" placeholder="Filan Fisteku" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="filanfisteku@gmail.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+    <label for="from">Nga</label>
+    <select id="from" required>
+        <option value="">Zgjidh qytetin</option>
+        <option value="Prishtina">Prishtina</option>
+        <option value="Tirana">Tirana</option>
+        <option value="Shkup">Shkup</option>
+        <option value="Podgorica">Podgoricë</option>
+        <option value="Sarajevo">Sarajevë</option>
+    </select>
+</div>
+
+<div class="form-group">
+    <label for="to">Deri në</label>
+    <select id="to" required>
+        <option value="">Zgjidh qytetin</option>
+        <option value="New York">New York</option>
+        <option value="Paris">Paris</option>
+        <option value="Tokyo">Tokyo</option>
+        <option value="Dubai">Dubai</option>
+        <option value="Berlin">Berlin</option>
+        <option value="London">London</option>
+        <option value="Rome">Rome</option>
+    </select>
+</div>
+
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="depart">Data e Nisjes</label>
+                            <input type="date" id="depart" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="return">Data e Kthimit</label>
+                            <input type="date" id="return">
+                        </div>
+                        <div class="form-group">
+                            <label for="passengers">Pasagjerët</label>
+                            <select id="passengers">
+                                <option value="1">1 </option>
+                                <option value="2">2 </option>
+                                <option value="3">3 </option>
+                                <option value="4">4 </option>
+                                <option value="5">5 </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="booking-button-container">
+    <button type="submit" class="btn-primary btn-full">Rezervo Tani</button>
+
+    <div id="livePrice">
+        Çmimi: $0
+    </div>
+</div>
+
+
+                </form>
+
+                <p id="bookingSuccess" class="booking-success hidden"></p>
+            </div>
+
+            <div class="booking-info">
+                <h3>Pse të rezervoni me ne?</h3><br>
+                <ul class="booking-info">
+                    <li>✔ Mbështetje 24/7 për klientët</li>
+                    <li>✔ Pa tarifa të fshehura</li>
+                    <li>✔ Ndryshime fleksibile për shumicën e biletave</li>
+                    <li>✔ E besuar nga mijëra udhëtarë</li>
+                </ul>
+            </div>
+        </section>
+
+        
+        <section class="destinations" id="destinations">
+            <h2>Destinacionet Popullore</h2>
+            <p class="section-subtitle">
+                Qytete të përzgjedhura me fluturime ditore me çmime të jashtëzakonshme.
+            </p>
+
+            <div class="cards">
+                
+                <article class="card">
+                    <img src="img/destination1.jpg" alt="New York skyline">
+                    <div class="card-content">
+                        <h3>New York</h3>
+                        <p>
+                            Përjeto qytetin që kurrë nuk fle. I përsosur për blerje, shfaqje dhe pamje të paharrueshme.</br>
+                            <span>Duke filluar nga <strong>$399</strong></span>
+                        </p>
+                        <button class="card-btn" data-city="New York">Shiko Oferta</button>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img src="img/destination2.avif" alt="Paris Eiffel Tower">
+                    <div class="card-content">
+                        <h3>Paris</h3>
+                        <p>
+                            Ecje romantike pranë lumit Seine, muzeume me famë botërore dhe ushqim i shijshëm në çdo cep.</br>
+                            <span>Duke filluar nga <strong>$299</strong></span>
+                        </p>
+                        <button class="card-btn" data-city="Paris">Shiko Oferta</button>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img src="img/destination3.jpg" alt="Tokyo night lights">
+                    <div class="card-content">
+                        <h3>Tokyo</h3>
+                        <p>
+                            Një përzierje e përsosur e traditës dhe teknologjisë. Tempuj, drita neon dhe ushqim mahnitës.</br>
+                            <span>Duke filluar nga <strong>$749</strong> </span>
+                        </p>
+                        <button class="card-btn" data-city="Tokyo">Shiko Oferta</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+    </main>
+<footer class="main-footer">
+        <p><span id="year"></span> Fly With Us. Të gjitha të drejtat e rezervuara.</p>
+         <p class="sub-footer">
+    <a href="#" >Privacy Policy</a> | 
+    <a href="#" >Terms & Conditions</a>
+  </p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="script.js"></script>
+
+
+<div id="successPopup" class="popup-overlay">
+    <div class="popup-box">
+        <h2>Rezervimi u krye me sukses!</h2>
+        <p id="popupMessage"></p>
+        <button id="closePopup">Mbylle</button>
+    </div>
+</div>
+
+</body>
+
+</html>
