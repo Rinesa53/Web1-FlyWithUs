@@ -127,6 +127,43 @@ body {
     to   { opacity: 1; transform: translateY(0); }
 }
 
+/* ================= HERO SECTION ================= */
+
+.hero {
+    position: relative;
+    height: 65vh;                        
+    background-image: url("img/airplane-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;          
+    align-items: center;
+    padding-bottom: 80px;               
+    color: #fff;
+}
+
+.hero h1,
+.hero-title { 
+    font-size: 80px;
+    text-align: center; 
+    color: #fff; 
+    text-shadow: 0 3px 10px rgba(0,0,0,0.5);
+}
+
+.hero-subtitle {
+    margin-top: 1rem;
+    margin-bottom: 20px;
+    max-width: 600px;
+    font-weight: 300;
+    font-size: 0.98rem;
+}
+
+.hero-logo {
+    width: 150px;
+    animation: bounce 2s infinite;
+}
+
 /* ============ ABOUT PAGE ============ */
 
 .about-hero {
