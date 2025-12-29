@@ -23,6 +23,110 @@ body {
     color: #111827;
 }
 
+/* ================= NAVIGATION ================= */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background-color: #021428;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.8rem 4rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.nav-logo {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}
+
+.logo-text {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav-links {
+    gap: 1.8rem;
+    font-weight: 500;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    position: relative;
+    font-size: 0.95rem;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background: #38bdf8;
+    transition: width 0.2s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+/* Kur hapet menuja në mobile */
+.nav-links.active {
+    display: flex;
+    animation: fadeDown 0.3s ease-in-out;
+}
+
+/* HAMBURGER – default vetëm në mobile */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 28px;
+    height: 3px;
+    background: white;
+    transition: 0.3s;
+}
+
+/* DESKTOP VIEW */
+@media (min-width: 851px) {
+    .nav-links {
+        display: flex;         
+        position: static;
+        flex-direction: row;
+        width: auto;
+        padding: 0;
+        background: transparent;
+    }
+
+    .hamburger {
+        display: none;
+    }
+}
+
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
 /* ============ ABOUT PAGE ============ */
 
 .about-hero {
