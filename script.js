@@ -103,3 +103,30 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("Ju lutem vendosni një email valid.");
         return;
     }
+
+    // Contact Success popup
+    $("#contactPopup")
+        .css("display", "flex")
+        .hide()
+        .fadeIn(400);
+
+    contactForm.reset();
+});
+
+    contactClose.addEventListener("click", () => {
+    $("#contactPopup").fadeOut(400);
+});
+
+    contactPopup.addEventListener("click", (e) => {
+    if (e.target === contactPopup) {
+        $("#contactPopup").fadeOut(400);
+    }
+});
+
+    document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        $("#contactPopup").fadeOut(400);
+    }
+});
+
+});
