@@ -130,3 +130,17 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 });
+
+// ===== DESTINATION BUTTON LOGIC =====
+document.querySelectorAll(".card-btn").forEach(button => {
+    button.addEventListener("click", () => {
+        const city = button.getAttribute("data-city");
+        const toInput = document.getElementById("to");
+        const bookingSection = document.getElementById("booking");
+        if (bookingSection) bookingSection.scrollIntoView({ behavior: "smooth" });
+        if (toInput && city) {
+            toInput.value = city;
+            updateLivePrice();
+        }
+    });
+});
