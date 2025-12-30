@@ -144,3 +144,7 @@ document.querySelectorAll(".card-btn").forEach(button => {
         }
     });
 });
+
+// ===== FOOTER YEAR =====
+const yearSpan = document.getElementById("year");
+if (yearSpan) yearSpan.textContent = new Date().getFullYear();
