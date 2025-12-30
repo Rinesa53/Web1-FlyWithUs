@@ -193,3 +193,28 @@ function updateLivePrice() {
 [fromInput, toInput, passengersInput, returnInput].forEach(el => {
     if (el) el.addEventListener("change", updateLivePrice);
 });
+
+// ===== Callback, Timeout, String/Date, DOM effects, Array =====
+function runCallback(message, callback) { callback(message); }
+runCallback("Callback funksioni u ekzekutua.", msg => console.log(msg));
+
+setTimeout(() => console.log("Timeout u ekzekutua pas 1.5 sekondash."), 1500);
+
+const exampleCity = "  prishtina  ";
+console.log("Trim:", exampleCity.trim());
+console.log("Uppercase:", exampleCity.trim().toUpperCase());
+console.log("Includes 'pri'?", exampleCity.toLowerCase().includes("pri"));
+
+console.log("Data e sotme:", new Date().toLocaleDateString());
+
+const mainTitle = document.querySelector("h1");
+if (mainTitle) {
+    mainTitle.style.transition = "0.4s ease";
+    mainTitle.addEventListener("mouseover", () => mainTitle.style.transform = "scale(1.03)");
+    mainTitle.addEventListener("mouseout", () => mainTitle.style.transform = "scale(1)");
+}
+
+const samplePrices = [120, 250, 400, 90];
+console.log("MAP:", samplePrices.map(p => p + 10));
+console.log("FILTER:", samplePrices.filter(p => p > 200));
+console.log("REDUCE:", samplePrices.reduce((acc, val) => acc + val, 0));
