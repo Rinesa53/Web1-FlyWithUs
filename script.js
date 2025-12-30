@@ -170,3 +170,26 @@ if (departInput && returnInput) {
         returnInput.min = departInput.value;
     });
 }
+
+// ===== LIVE PRICE CALCULATION =====
+function updateLivePrice() {
+    const from = fromInput.value;
+    const to = toInput.value;
+    const passengers = parseInt(passengersInput.value) || 0;
+    const retDate = returnInput.value;
+
+    if (!from || !to || !passengers) {
+        livePriceBox.textContent = "Çmimi: $0";
+        return;
+    }
+
+    let pricePerPerson = prices[from] ? prices[from][to] : 0;
+    if (retDate) pricePerPerson *= 2;
+
+    const totalPrice = pricePerPerson * passengers;
+    livePriceBox.textContent = `Çmimi: $${totalPrice}`;
+}
+
+[fromInput, toInput, passengersInput, returnInput].forEach(el => {
+    if (el) el.addEventListener("change", updateLivePrice);
+});
