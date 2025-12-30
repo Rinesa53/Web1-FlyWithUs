@@ -573,6 +573,33 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     line-height: 1.5;
 }
 
+/* ================= GENERAL FORM ================= */
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+form input,
+form button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+form button {
+    background: #3da9fc;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #2a85c7;
+}
+
 /* ============ ABOUT PAGE ============ */
 
 .about-hero {
