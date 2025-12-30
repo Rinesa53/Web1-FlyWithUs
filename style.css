@@ -410,29 +410,6 @@ body {
     pointer-events: none;
 }
 
-.button-modern {
-    background: linear-gradient(135deg, #3da9fc, #1b7ed6);
-    padding: 12px 30px;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s;
-    width: 100%;
-}
-
-.button-modern:hover {
-    background: linear-gradient(135deg, #1b7ed6, #1672c9);
-    box-shadow: 0 0 12px rgba(29,139,255,0.7);
-    transform: translateY(-2px);
-}
-
-.button-modern:active {
-    transform: scale(0.97);
-}
-
 input[type="date"]::-webkit-calendar-picker-indicator {
     filter: invert(1);
 }
@@ -1089,20 +1066,28 @@ form button:hover {
     resize: vertical;
 }
 
-.contact-form-box button {
+.button-modern {
     margin-top: 5px;
-    padding: 10px 18px;
-    border-radius: 6px;
+    background: linear-gradient(135deg, #3da9fc, #1b7ed6);
+    padding: 12px 30px;
+    color: #fff;
     border: none;
-    background: #0b1a2e;
-    color: white;
+    border-radius: 8px;
+    font-size: 16px;
     font-weight: 600;
     cursor: pointer;
     transition: 0.3s;
+    width: 100%;
 }
 
-.contact-form-box button:hover {
-    background: #174070;
+.button-modern:hover {
+    background: linear-gradient(135deg, #1b7ed6, #1672c9);
+    box-shadow: 0 0 12px rgba(29,139,255,0.7);
+    transform: translateY(-2px);
+}
+
+.button-modern:active {
+    transform: scale(0.97);
 }
 
 /* Responsive për contact page */
@@ -1167,8 +1152,6 @@ form button:hover {
     margin-bottom: 6px;
 }
 
-/* Gallery */
-
 .footer-gallery {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1202,4 +1185,82 @@ form button:hover {
         flex-direction: column;
     }
 
+}
+
+/* ========== FLOATING LABEL INPUTS ========== */
+
+.float-group {
+    position: relative;
+    width: 100%;
+    margin-bottom: 14px;
+}
+
+.float-group .input-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #7fa6c7;
+    pointer-events: none;
+}
+
+.float-group input,
+.float-group textarea {
+    width: 100%;
+    padding: 14px 14px 10px 45px;     
+    background: #0d1525;
+    color: #d9e8ff;
+    border: 1px solid #2d3c50;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.25s ease,
+                box-shadow 0.25s ease,
+                background-color 0.25s ease;
+}
+
+.float-group textarea {
+    min-height: 110px;
+    resize: vertical;
+    padding-top: 20px;
+}
+
+.float-group input::placeholder,
+.float-group textarea::placeholder {
+    color: transparent; 
+}
+
+.float-group label {
+    position: absolute;
+    left: 45px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #6f85a7;
+    pointer-events: none;
+    transition: 0.2s ease;
+}
+
+.float-group input:hover,
+.float-group textarea:hover {
+    background: #111b30;
+    border-color: #3da9fc;
+}
+
+.float-group input:focus,
+.float-group textarea:focus {
+    border-color: #4ecbff;
+    box-shadow: 0 0 8px rgba(78, 203, 255, 0.6);
+}
+
+.float-group input:focus ~ label,
+.float-group textarea:focus ~ label,
+.float-group input:not(:placeholder-shown) ~ label,
+.float-group textarea:not(:placeholder-shown) ~ label {
+    top: 6px;
+    transform: none;
+    font-size: 11px;
+    letter-spacing: 0.03em;
+    color: #4ecbff;
 }
