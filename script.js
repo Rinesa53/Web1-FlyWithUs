@@ -17,3 +17,14 @@ if (bookingForm) {
         const depart = document.getElementById("depart").value;
         const ret = document.getElementById("return").value;
         const passengers = parseInt(document.getElementById("passengers").value);
+
+        // Booking Form Validation
+if (!name || !email || !from || !to || !depart || !passengers) {
+    alert("Ju lutem plotësoni të gjitha fushat.");
+    return;
+}
+
+if (!email.includes("@") || !email.includes(".")) {
+    alert("Ju lutem vendosni një email valid.");
+    return;
+}
