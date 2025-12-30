@@ -28,3 +28,42 @@ if (!email.includes("@") || !email.includes(".")) {
     alert("Ju lutem vendosni një email valid.");
     return;
 }
+
+// Booking Success Popup
+        const message = `
+            Rezervimi është bërë me sukses, <strong>${name}</strong>!<br><br>
+            Ju do të udhëtoni nga <strong>${from}</strong> drejt <strong>${to}</strong>
+            për <strong>${passengers}</strong> pasagjer(ë) më datën 
+            <span style="white-space: nowrap;"><strong>${depart}</strong></span>
+            ${ret ? ` dhe kthim më <span style="white-space: nowrap;"><strong>${ret}</strong></span>.` : "."}
+            <br><br>
+            Ne do t'ju kontaktojmë së shpejti në <strong>${email}</strong>.
+        `;
+
+        const successPopup = document.getElementById("successPopup");
+        document.getElementById("popupMessage").innerHTML = message;
+        $("#successPopup")
+  .css("display", "flex")
+  .hide()
+  .fadeIn(400);
+
+
+        const closeBtn = document.getElementById("closePopup");
+        closeBtn.onclick = () => { $("#successPopup").fadeOut(400); };
+
+        document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        $("#successPopup").fadeOut(400);
+    }
+}, { once: true });
+
+successPopup.addEventListener("click", (e) => {
+    if (e.target === successPopup) {
+        $("#successPopup").fadeOut(400);
+    }
+});
+
+        bookingForm.reset();
+        updateLivePrice();
+    });
+}
