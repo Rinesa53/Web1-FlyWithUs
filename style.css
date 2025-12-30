@@ -600,6 +600,29 @@ form button:hover {
     background: #2a85c7;
 }
 
+/* ================= ANIMATIONS ================= */
+
+@keyframes float {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-20px); }
+}
+
+@keyframes slideIn {
+    0%   { opacity: 0; transform: translateX(100px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+
 /* ============ ABOUT PAGE ============ */
 
 .about-hero {
