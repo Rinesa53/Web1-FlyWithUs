@@ -163,3 +163,10 @@ const toInput = document.getElementById("to");
 const passengersInput = document.getElementById("passengers");
 const returnInput = document.getElementById("return");
 const departInput = document.getElementById("depart");
+
+// ===== RETURN DATE =====
+if (departInput && returnInput) {
+    departInput.addEventListener("change", () => {
+        returnInput.min = departInput.value;
+    });
+}
