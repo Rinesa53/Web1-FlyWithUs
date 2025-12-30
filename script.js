@@ -92,3 +92,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const name = document.getElementById("c-name").value.trim();
     const email = document.getElementById("c-email").value.trim();
     const message = document.getElementById("c-message").value.trim();
+
+     // Contact Form Validation
+    if (!name || !email || !message) {
+        alert("Ju lutem plotësoni emrin, email-in dhe mesazhin.");
+        return;
+    }
+
+    if (!email.includes("@") || !email.includes(".")) {
+        alert("Ju lutem vendosni një email valid.");
+        return;
+    }
