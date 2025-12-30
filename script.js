@@ -67,3 +67,28 @@ successPopup.addEventListener("click", (e) => {
         updateLivePrice();
     });
 }
+
+// ===== CONTACT FORM POPUP =====
+document.addEventListener("DOMContentLoaded", () => {
+    const contactForm = document.querySelector(".contact-form-box");
+    if (!contactForm) return;
+
+    const contactPopup = document.createElement("div");
+    contactPopup.id = "contactPopup";
+    contactPopup.className = "popup-overlay";
+    contactPopup.innerHTML = `
+        <div class="popup-box">
+            <h2>Mesazhi u dërgua me sukses!</h2>
+            <button id="contactClose">Mbylle</button>
+        </div>
+    `;
+    document.body.appendChild(contactPopup);
+
+    const contactClose = document.getElementById("contactClose");
+
+    contactForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById("c-name").value.trim();
+    const email = document.getElementById("c-email").value.trim();
+    const message = document.getElementById("c-message").value.trim();
