@@ -52,37 +52,33 @@ if (bookingForm) {
 
 // Booking Success Popup
         const message = `
-            Rezervimi është bërë me sukses, <strong>${name}</strong>!<br><br>
-            Ju do të udhëtoni nga <strong>${from}</strong> drejt <strong>${to}</strong>
-            për <strong>${passengers}</strong> pasagjer(ë) më datën 
-            <span style="white-space: nowrap;"><strong>${depart}</strong></span>
-            ${ret ? ` dhe kthim më <span style="white-space: nowrap;"><strong>${ret}</strong></span>.` : "."}
+            Rezervimi është bërë me sukses, <strong>${name.value}</strong>!<br><br>
+            Ju do të udhëtoni nga <strong>${from.value}</strong> drejt <strong>${to.value}</strong>
+            për <strong>${passengers.value}</strong> pasagjer(ë) më datën 
+            <span style="white-space: nowrap;"><strong>${depart.value}</strong></span>
+            ${ret.value ? ` dhe kthim më <span style="white-space: nowrap;"><strong>${ret.value}</strong></span>.` : "."}
             <br><br>
-            Ne do t'ju kontaktojmë së shpejti në <strong>${email}</strong>.
+            Ne do t'ju kontaktojmë së shpejti në <strong>${email.value}</strong>.
         `;
 
         const successPopup = document.getElementById("successPopup");
         document.getElementById("popupMessage").innerHTML = message;
-        $("#successPopup")
-  .css("display", "flex")
-  .hide()
-  .fadeIn(400);
-
+        $("#successPopup").css("display", "flex").hide().fadeIn(400);
 
         const closeBtn = document.getElementById("closePopup");
-        closeBtn.onclick = () => { $("#successPopup").fadeOut(400); };
+        closeBtn.onclick = () => {
+            $("#successPopup").fadeOut(400);
+        };
 
         document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-        $("#successPopup").fadeOut(400);
-    }
-}, { once: true });
+            if (e.key === "Escape") $("#successPopup").fadeOut(400);
+        });
 
-successPopup.addEventListener("click", (e) => {
-    if (e.target === successPopup) {
-        $("#successPopup").fadeOut(400);
-    }
-});
+        successPopup.addEventListener("click", (e) => {
+            if (e.target === successPopup) {
+                $("#successPopup").fadeOut(400);
+            }
+        });
 
         bookingForm.reset();
         updateLivePrice();
