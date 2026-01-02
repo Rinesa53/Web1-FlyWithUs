@@ -174,7 +174,9 @@ document.querySelectorAll(".card-btn").forEach(button => {
 // ===== FOOTER YEAR =====
 
 const yearSpan = document.getElementById("year");
-if (yearSpan) {yearSpan.textContent = new Date().getFullYear();}
+if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+}
 
 // ===== PRICES =====
 
@@ -252,3 +254,51 @@ const samplePrices = [120, 250, 400, 90];
 console.log("MAP:", samplePrices.map(p => p + 10));
 console.log("FILTER:", samplePrices.filter(p => p > 200));
 console.log("REDUCE:", samplePrices.reduce((acc, val) => acc + val, 0));
+
+// ===== ABOUT FORM =====
+
+// Validimi i Login / Regjistrimit
+const loginForm = document.getElementById("loginForm");
+
+if (loginForm) {
+    const fullName = document.getElementById("fullName");
+    const email = document.getElementById("loginEmail");
+    const username = document.getElementById("username");
+    const password = document.getElementById("password");
+
+    [fullName, email, username].forEach(input => input.setAttribute("autocomplete","off"));
+
+    [fullName, email, username, password].forEach(input => {
+        input.addEventListener("input", () => input.setCustomValidity(""));
+    });
+
+    loginForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        function checkField(field, condition, message) {
+            if (condition) {
+                field.setCustomValidity(message);
+                field.reportValidity();
+                field.focus();
+                return false;
+            } else {
+                field.setCustomValidity("");
+            }
+            return true;
+        }
+
+        if (
+            !checkField(fullName, !fullName.value.trim(), "Ju lutem plotësoni emrin.") ||
+            !checkField(fullName, fullName.value.length < 2, "Emri duhet të ketë të paktën 2 karaktere.") ||
+            !checkField(email, !email.value.trim(), "Ju lutem vendosni email-in.") ||
+            !checkField(email, !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value.trim()), "Ju lutem vendosni një email valid.") ||
+            !checkField(username, !username.value.trim(), "Ju lutem vendosni emrin e përdoruesit.") ||
+            !checkField(username, username.value.length < 4, "Emri i përdoruesit duhet të ketë të paktën 4 karaktere.") ||
+            !checkField(password, !password.value.trim(), "Ju lutem vendosni fjalëkalimin.") ||
+            !checkField(password, password.value.length < 6, "Fjalëkalimi duhet të ketë të paktën 6 karaktere.")
+        ) return;
+
+        loginForm.reset();
+        window.location.href = "index.html";
+    });
+}
