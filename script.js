@@ -1,33 +1,54 @@
+// ===== NAVIGATION =====
+
 function toggleMenu() {
     document.getElementById("navLinks").classList.toggle("active");
 }
 
-// ===== BOOKING FORM LOGIC =====
+// ===== BOOKING FORM =====
+
 const bookingForm = document.getElementById("bookingForm");
 const livePriceBox = document.getElementById("livePrice");
 
 if (bookingForm) {
-    bookingForm.addEventListener("submit", function(e) {
+    const name = document.getElementById("name");
+    const email = document.getElementById("email");
+    const from = document.getElementById("from");
+    const to = document.getElementById("to");
+    const depart = document.getElementById("depart");
+    const ret = document.getElementById("return");
+    const passengers = document.getElementById("passengers");
+
+    [name, email].forEach(input => input.setAttribute("autocomplete", "off"));
+
+    // Booking Form Validation
+    [name, email, from, to, depart, passengers, ret].forEach(input =>
+        input.addEventListener("input", () => input.setCustomValidity(""))
+    );
+
+    bookingForm.addEventListener("submit", function (e) {
         e.preventDefault();
 
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const from = document.getElementById("from").value.trim();
-        const to = document.getElementById("to").value.trim();
-        const depart = document.getElementById("depart").value;
-        const ret = document.getElementById("return").value;
-        const passengers = parseInt(document.getElementById("passengers").value);
+        function checkField(field, condition, message) {
+            if (condition) {
+                field.setCustomValidity(message);
+                field.reportValidity();
+                field.focus();
+                return false;
+            } else {
+                field.setCustomValidity("");
+            }
+            return true;
+        }
 
-        // Booking Form Validation
-if (!name || !email || !from || !to || !depart || !passengers) {
-    alert("Ju lutem plotësoni të gjitha fushat.");
-    return;
-}
-
-if (!email.includes("@") || !email.includes(".")) {
-    alert("Ju lutem vendosni një email valid.");
-    return;
-}
+        if (
+            !checkField(name, !name.value.trim(), "Ju lutem plotësoni emrin.") ||
+            !checkField(name, name.value.length < 2, "Emri duhet të ketë të paktën 2 karaktere.") ||
+            !checkField(email, !email.value.trim(), "Ju lutem vendosni email-in.") ||
+            !checkField(email, !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim()), "Ju lutem vendosni një email valid") ||
+            !checkField(from, !from.value.trim(), "Ju lutem zgjedhni vendin e nisjes.") ||
+            !checkField(to, !to.value.trim(), "Ju lutem zgjedhni destinacionin.") ||
+            !checkField(depart, !depart.value, "Ju lutem zgjedhni datën e nisjes.")
+        ) return;
 
 // Booking Success Popup
         const message = `
