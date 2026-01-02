@@ -85,11 +85,23 @@ if (bookingForm) {
     });
 }
 
-// ===== CONTACT FORM POPUP =====
+// ===== CONTACT FORM =====
+
 document.addEventListener("DOMContentLoaded", () => {
     const contactForm = document.querySelector(".contact-form-box");
     if (!contactForm) return;
 
+    const cName = document.getElementById("c-name");
+    const cEmail = document.getElementById("c-email");
+    const cMessage = document.getElementById("c-message");
+
+    [cName, cEmail].forEach(input => input.setAttribute("autocomplete", "off"));
+
+    [cName, cEmail, cMessage].forEach(input =>
+        input.addEventListener("input", () => input.setCustomValidity(""))
+    );
+
+    // Contact Success Popup
     const contactPopup = document.createElement("div");
     contactPopup.id = "contactPopup";
     contactPopup.className = "popup-overlay";
@@ -103,49 +115,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const contactClose = document.getElementById("contactClose");
 
-    contactForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const name = document.getElementById("c-name").value.trim();
-    const email = document.getElementById("c-email").value.trim();
-    const message = document.getElementById("c-message").value.trim();
+    contactClose.addEventListener("click", () => $("#contactPopup").fadeOut(400));
+    contactPopup.addEventListener("click", (e) => {
+        if (e.target === contactPopup) $("#contactPopup").fadeOut(400);
+    });
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") $("#contactPopup").fadeOut(400);
+    });
 
      // Contact Form Validation
-    if (!name || !email || !message) {
-        alert("Ju lutem plotësoni emrin, email-in dhe mesazhin.");
-        return;
-    }
+    contactForm.addEventListener("submit", (e) => {
+        e.preventDefault();
 
-    if (!email.includes("@") || !email.includes(".")) {
-        alert("Ju lutem vendosni një email valid.");
-        return;
-    }
+        function checkField(field, condition, message) {
+            if (condition) {
+                field.setCustomValidity(message);
+                field.reportValidity();
+                field.focus();
+                return false;
+            }
+            field.setCustomValidity("");
+            return true;
+        }
 
-    // Contact Success popup
-    $("#contactPopup")
-        .css("display", "flex")
-        .hide()
-        .fadeIn(400);
+        if (
+            !checkField(cName, !cName.value.trim(), "Ju lutem plotësoni emrin.") ||
+            !checkField(cName, cName.value.trim().length < 2, "Emri duhet të ketë të paktën 2 karaktere.") ||
+            !checkField(cEmail, !cEmail.value.trim(), "Ju lutem vendosni email-in.") ||
+            !checkField(cEmail, !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cEmail.value.trim()), "Ju lutem vendosni një email valid.") ||
+            !checkField(cMessage, !cMessage.value.trim(), "Ju lutem shkruani mesazhin.")
+        ) return;
 
-    contactForm.reset();
-});
+        $("#contactPopup").css("display", "flex").hide().fadeIn(400);
 
-    contactClose.addEventListener("click", () => {
-    $("#contactPopup").fadeOut(400);
-});
-
-    contactPopup.addEventListener("click", (e) => {
-    if (e.target === contactPopup) {
-        $("#contactPopup").fadeOut(400);
-    }
-});
-
-    document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-        $("#contactPopup").fadeOut(400);
-    }
-});
-
+        contactForm.reset();
+    });
 });
 
 // ===== DESTINATION BUTTON LOGIC =====
