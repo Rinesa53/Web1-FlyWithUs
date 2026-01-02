@@ -50,7 +50,7 @@ if (bookingForm) {
             !checkField(depart, !depart.value, "Ju lutem zgjedhni datën e nisjes.")
         ) return;
 
-// Booking Success Popup
+        // Booking Success Popup
         const message = `
             Rezervimi është bërë me sukses, <strong>${name.value}</strong>!<br><br>
             Ju do të udhëtoni nga <strong>${from.value}</strong> drejt <strong>${to.value}</strong>
@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (e.key === "Escape") $("#contactPopup").fadeOut(400);
     });
 
-     // Contact Form Validation
+    // Contact Form Validation
     contactForm.addEventListener("submit", (e) => {
         e.preventDefault();
 
@@ -152,13 +152,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// ===== DESTINATION BUTTON LOGIC =====
+// ===== DESTINATIONS =====
+
 document.querySelectorAll(".card-btn").forEach(button => {
     button.addEventListener("click", () => {
         const city = button.getAttribute("data-city");
         const toInput = document.getElementById("to");
         const bookingSection = document.getElementById("booking");
-        if (bookingSection) bookingSection.scrollIntoView({ behavior: "smooth" });
+
+        if (bookingSection) {
+            bookingSection.scrollIntoView({ behavior: "smooth" });
+        }
+
         if (toInput && city) {
             toInput.value = city;
             updateLivePrice();
@@ -167,10 +172,12 @@ document.querySelectorAll(".card-btn").forEach(button => {
 });
 
 // ===== FOOTER YEAR =====
+
 const yearSpan = document.getElementById("year");
-if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+if (yearSpan) {yearSpan.textContent = new Date().getFullYear();}
 
 // ===== PRICES =====
+
 const prices = {
     "Prishtina": {"New York":399,"Paris":299,"Tokyo":749,"Dubai":499,"Berlin":279,"London":350,"Rome":320},
     "Tirana": {"New York":420,"Paris":310,"Tokyo":770,"Dubai":520,"Berlin":290,"London":360,"Rome":330},
@@ -185,7 +192,11 @@ const passengersInput = document.getElementById("passengers");
 const returnInput = document.getElementById("return");
 const departInput = document.getElementById("depart");
 
-// ===== RETURN DATE =====
+// ===== DEPARTURE AND RETURN DATE =====
+
+const today = new Date().toISOString().split("T")[0];
+if (departInput) departInput.setAttribute("min", today);
+
 if (departInput && returnInput) {
     departInput.addEventListener("change", () => {
         returnInput.min = departInput.value;
@@ -193,6 +204,7 @@ if (departInput && returnInput) {
 }
 
 // ===== LIVE PRICE CALCULATION =====
+
 function updateLivePrice() {
     const from = fromInput.value;
     const to = toInput.value;
@@ -216,6 +228,7 @@ function updateLivePrice() {
 });
 
 // ===== Callback, Timeout, String/Date, DOM effects, Array =====
+
 function runCallback(message, callback) { callback(message); }
 runCallback("Callback funksioni u ekzekutua.", msg => console.log(msg));
 
