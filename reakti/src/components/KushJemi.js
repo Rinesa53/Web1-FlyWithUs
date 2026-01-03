@@ -1,11 +1,11 @@
 import React from 'react';
 function KushJemi() {
     return (
-     <section class="about-hero-bg">
-    <div class="hero-overlay">
-        <span class="about-badge">Kush jemi</span>
+     <section className="about-hero-bg">
+    <div className="hero-overlay">
+        <span className="about-badge">Kush jemi</span>
         <h1>Udhëtime më të lehta, më të zgjuara</h1>
-        <p class="about-lead">
+        <p className="about-lead">
             Fly With Us është një platformë moderne për rezervimin e fluturimeve.
             Ne ju ndihmojmë të gjeni destinacionin ideal – shpejt, thjesht dhe me siguri.
         </p>

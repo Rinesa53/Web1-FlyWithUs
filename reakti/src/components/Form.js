@@ -1,8 +1,8 @@
 import React from 'react';
 function Form() {
     return (
-    <section class="about-form">
-    <div class="about-form-text">
+    <section className="about-form">
+    <div className="about-form-text">
         <h2>Krijo llogarinë tënde</h2>
         <p>
             Regjistrohu falas për të ruajtur destinacionet e preferuara,

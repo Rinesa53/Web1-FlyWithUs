@@ -1,18 +1,25 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {Box} from '@mui/material';
+
 function Menu({logo}) {
+    const [open, setOpen] = useState(false);
+    const toggleMenu = () => setOpen(o => !o);
+
     return (
-     <nav class="navbar">
-            <div class="logo">
-                <img src={logo} alt="Airplane Logo" class="nav-logo"/>
-                <a href="index.html" class="logo-text">Fly With Us</a>
+     <Box className="navbar">
+       <Box component="nav" className="nav-container">
+            <div className="logo">
+                <img src={logo} alt="Airplane Logo" className="nav-logo"/>
+                <a href="index.html" className="logo-text">Fly With Us</a>
             </div>
-    
-            <div class="hamburger" onclick="toggleMenu()">
+
+            <div className={"hamburger" + (open ? ' open' : '')} onClick={toggleMenu} role="button" aria-label="Toggle navigation">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-            <div class="nav-links" id="navLinks">
+
+            <div className={"nav-links" + (open ? ' open' : '')} id="navLinks">
                 <a href="index.html#hero">Kryefaqja</a>
                 <a href="index.html#booking">Rezervo</a>
                 <a href="index.html#destinations">Destinacionet</a>
@@ -21,7 +28,9 @@ function Menu({logo}) {
                 <a href="contact.html">Kontakti</a>
                 <a href="faq.html">FAQ</a>
             </div>
-        </nav>
-)
+       </Box>
+     </Box>
+    )
 }
+
 export default Menu;
