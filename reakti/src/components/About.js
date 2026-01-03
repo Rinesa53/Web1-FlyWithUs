@@ -1,9 +1,9 @@
 import React from 'react';
 function About() {
     return (
-     <section class="about-features">
+     <section className="about-features">
     <h2>Pse klientët na zgjedhin?</h2>
-    <p class="about-features-subtitle">
+    <p className="about-features-subtitle">
         Jo vetëm një biletë – por një eksperiencë udhëtimi e plotë.
     </p>
 
@@ -22,7 +22,7 @@ function About() {
         </div>
     </div>
 </section>
-
 )
 }
 export default About;
+    
